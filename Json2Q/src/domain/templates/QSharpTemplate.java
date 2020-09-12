@@ -6,14 +6,15 @@ import java.util.Iterator;
 public class QSharpTemplate extends AbstractTemplate{
 
 	@Override
-	protected String header(String fileName) {
+	protected String header(String fileName, int nQubits) {
 		return "namespace QL_Test {\r\n" + 
 				"    \r\n" + 
 				"    open Microsoft.Quantum.Canon;\r\n" + 
 				"    open Microsoft.Quantum.Intrinsic;\r\n" + 
 				"    \r\n" + 
 				"    operation " + fileName + "(qubits : Qubit[]) : Unit is Adj + Ctl{" +
-				"    \r\n";
+				"    \r\n" + 
+				"    if(size(quibits == " + nQubits + ")){\r\n";
 	}
 
 	@Override
@@ -46,7 +47,7 @@ public class QSharpTemplate extends AbstractTemplate{
 						}
 					}
 					break;
-				case "X":      // Z gate.
+				case "X":      // X gate.
 					if(!controlled) {
 						code += "X(qubits[" + nWire + "]);";
 					}else {

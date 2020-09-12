@@ -7,7 +7,7 @@ public abstract class AbstractTemplate {
 
 	public String generateCode(String fileName, int nQbits, ArrayList<ArrayList<ArrayList<Object>>> columns) {
 		String code = "";
-		code += header(fileName);
+		code += header(fileName, nQbits);
 		Iterator<ArrayList<ArrayList<Object>>> iterator = columns.iterator();
 		while (iterator.hasNext()) {
 			ArrayList<Object> column = (ArrayList) iterator.next();
@@ -18,10 +18,10 @@ public abstract class AbstractTemplate {
 		return code;
 	}
 
-	protected abstract String header(String fileName);
-	
 	protected abstract String bodyStep(ArrayList column);
 	
 	protected abstract String tail();
+
+	protected abstract String header(String fileName, int nWires);
 
 }
