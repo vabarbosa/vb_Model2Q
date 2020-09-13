@@ -96,6 +96,9 @@ public class QSharpTemplate extends AbstractTemplate{
 					break;
 			}
 			nWire++;
+			/*if(iterator.hasNext()) {
+				code += "\r\n        ";
+			}*/
 		}
 		code += "\r\n";
 		return code;

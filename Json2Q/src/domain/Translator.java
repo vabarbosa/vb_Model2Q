@@ -43,9 +43,7 @@ public class Translator {
 		// Generamos el c�digo por medio de la plantilla.
 		code = template.generateCode(fileName, nQbits, columns);
 		// Creamos el directorio de salida.
-		File parentFile = new File(new File(inputPath).getParentFile().getAbsolutePath() + System.getProperty("file.separator") 
-				+ "Json2Q" + System.getProperty("file.separator"));
-		parentFile.mkdirs();
+		File parentFile = new File(new File(inputPath).getParentFile().getAbsolutePath() + System.getProperty("file.separator") );
 		// Creamos el archivo de salida y lo escribimos.
 		File outputFile = new File(parentFile + System.getProperty("file.separator") + fileName + ".qs" + System.getProperty("file.separator"));
 		FileBroker.write(outputFile, code);
