@@ -6,16 +6,16 @@ import java.io.FileNotFoundException;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
 
-import domain.Translator;
+import domain.Compilator;
 
 public class ShellInterface {
 	public static void main (String args[]) {
-		System.out.println("Json2Q\r\n");
+		System.out.println("Model2Q\r\n");
 		errorMessages(args);
 		System.out.println("Reading from: " + args[0] + "...");
 		System.out.println("Input format: " + args[1] + ".");
 		System.out.println("Output languaje: " + args[2] + ".\r\n");
-		Translator translator = new Translator();
+		Compilator translator = new Compilator();
 		try{
 			translator.translate(args[0], args[1], args[2]);
 		}catch (Exception e) {
